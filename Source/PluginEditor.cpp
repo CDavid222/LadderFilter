@@ -15,7 +15,7 @@ LadderFilterAudioProcessorEditor::LadderFilterAudioProcessorEditor (LadderFilter
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize(230, 230);
+    setSize(230, 330);
 
     // Cutoff Frequency
     cutoffValue = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>
@@ -51,7 +51,11 @@ LadderFilterAudioProcessorEditor::LadderFilterAudioProcessorEditor (LadderFilter
     modeChoice = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(treeState, "mode", modeSel);
     addAndMakeVisible(&modeSel);
 
-
+    //Bypass
+    enabledChoice = std::make_unique < juce::AudioProcessorValueTreeState::ButtonAttachment>(treeState, "bypass", enabledValue);
+    enabledValue.setColour(juce::ToggleButton::ColourIds::textColourId, juce::Colours::black);
+    enabledValue.setButtonText("Set Enabled?");
+    addAndMakeVisible(&enabledValue);
 }
 
 LadderFilterAudioProcessorEditor::~LadderFilterAudioProcessorEditor()
@@ -83,5 +87,6 @@ void LadderFilterAudioProcessorEditor::resized()
     resonanceDial.setBounds(120, 40, 100, 100);
     driveDial.setBounds(10, 130, 100, 100);
     modeSel.setBounds(127.5, 169.5, 75, 25);
+    enabledValue.setBounds(123, 190, 100, 50);
 
 }

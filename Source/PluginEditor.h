@@ -30,11 +30,13 @@ private:
     juce::Slider resonanceDial;
     juce::Slider driveDial;
     juce::ComboBox modeSel;
+    juce::ToggleButton enabledValue;
 
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> cutoffValue;
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> resonanceValue;
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> driveValue;
     std::unique_ptr <juce::AudioProcessorValueTreeState::ComboBoxAttachment> modeChoice;
+    std::unique_ptr <juce::AudioProcessorValueTreeState::ButtonAttachment> enabledChoice;
 
 
     // This reference is provided as a quick way for your editor to
