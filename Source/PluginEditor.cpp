@@ -78,7 +78,9 @@ void LadderFilterAudioProcessorEditor::paint (juce::Graphics& g)
     g.drawFittedText("F", 55, 85, 10, 10, juce::Justification::centred, 1, 0.0f);
     g.drawFittedText("R", 165, 85, 10, 10, juce::Justification::centred, 1, 0.0f);
     g.drawFittedText("D", 55, 175, 12, 12, juce::Justification::centred, 1, 0.0f);
-
+    
+    juce::Image background = juce::ImageCache::getFromMemory(BinaryData::Encapsulation_jpg, BinaryData::Encapsulation_jpgSize);
+    g.drawImageAt(background, 0, 0);
 }
 
 void LadderFilterAudioProcessorEditor::resized()
